@@ -24,9 +24,7 @@ test {
 }
 
 tasks.withType(Test) {
-    useJUnitPlatform()
-
     testLogging {
-        events("passed", "skipped", "failed")
+        events "standardOut", "started", "passed", "skipped", "failed"
     }
 }
