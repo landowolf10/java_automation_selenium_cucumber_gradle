@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="runners.TestRunner" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-08T06:14:06" hostname="DESKTOP-AM3C8N4" time="4.729">
+  <properties/>
+  <testcase name="Validate checkout flow" classname="runners.TestRunner" time="4.729"/>
+  <system-out><![CDATA[
+Scenario: Validate checkout flow                              ?[90m# src/main/java/project/features/checkout.feature:2?[0m
+  ?[32mGiven ?[0m?[32mapp is open?[0m                                           ?[90m# project.steps_definition.common.CommonSteps.validateAppOpen()?[0m
+
+    Embedding Screenshot 1 [image/png 53652 bytes]
+
+  ?[32mWhen ?[0m?[32mentering email ?[0m?[32m?[1mstandard_user?[0m?[32m and password ?[0m?[32m?[1msecret_sauce?[0m ?[90m# project.steps_definition.LoginSteps.sendUsername(java.lang.String,java.lang.String)?[0m
+
+    Embedding Screenshot 1 [image/png 53073 bytes]
+
+  ?[32mAnd ?[0m?[32mpress login button?[0m                                      ?[90m# project.steps_definition.LoginSteps.pressLoginButton()?[0m
+
+    Embedding Screenshot 1 [image/png 440593 bytes]
+
+  ?[32mAnd ?[0m?[32msort products from most expensive to cheapest?[0m           ?[90m# project.steps_definition.MainPageSteps.sortProduct()?[0m
+
+    Embedding Screenshot 1 [image/png 588792 bytes]
+
+  ?[32mAnd ?[0m?[32madd product to the cart?[0m                                 ?[90m# project.steps_definition.MainPageSteps.addProductToCart()?[0m
+
+    Embedding Screenshot 1 [image/png 589709 bytes]
+
+  ?[32mAnd ?[0m?[32madd product to the cart?[0m                                 ?[90m# project.steps_definition.MainPageSteps.addProductToCart()?[0m
+
+    Embedding Screenshot 1 [image/png 589234 bytes]
+
+  ?[32mAnd ?[0m?[32mproceed with the checkout?[0m                               ?[90m# project.steps_definition.CheckoutSteps.addProductToCart()?[0m
+
+    Embedding Screenshot 1 [image/png 42544 bytes]
+
+]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Starting ChromeDriver 108.0.5359.71 (1e0e3868ee06e91ad636a874420e3ca3ae3756ac-refs/branch-heads/5359@{#1016}) on port 9068
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+dic 08, 2022 12:14:08 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 108, so returning the closest version found: 107
+?[32m?[1m┌───────────────────────────────────────────────────────────────────────────────────┐?[0m
+?[32m?[1m│?[0m Share your Cucumber Report with your team at ?[36m?[1m?[4mhttps://reports.cucumber.io?[0m          ?[32m?[1m│?[0m
+?[32m?[1m│?[0m Activate publishing with one of the following:                                    ?[32m?[1m│?[0m
+?[32m?[1m│?[0m                                                                                   ?[32m?[1m│?[0m
+?[32m?[1m│?[0m src/test/resources/cucumber.properties:          ?[36mcucumber.publish.enabled?[0m=?[36mtrue?[0m    ?[32m?[1m│?[0m
+?[32m?[1m│?[0m src/test/resources/junit-platform.properties:    ?[36mcucumber.publish.enabled?[0m=?[36mtrue?[0m    ?[32m?[1m│?[0m
+?[32m?[1m│?[0m Environment variable:                            ?[36mCUCUMBER_PUBLISH_ENABLED?[0m=?[36mtrue?[0m    ?[32m?[1m│?[0m
+?[32m?[1m│?[0m JUnit:                                           ?[36m@CucumberOptions?[0m(publish = ?[36mtrue?[0m) ?[32m?[1m│?[0m
+?[32m?[1m│?[0m                                                                                   ?[32m?[1m│?[0m
+?[32m?[1m│?[0m More information at ?[36mhttps://cucumber.io/docs/cucumber/environment-variables/?[0m      ?[32m?[1m│?[0m
+?[32m?[1m│?[0m                                                                                   ?[32m?[1m│?[0m
+?[32m?[1m│?[0m Disable this message with one of the following:                                   ?[32m?[1m│?[0m
+?[32m?[1m│?[0m                                                                                   ?[32m?[1m│?[0m
+?[32m?[1m│?[0m src/test/resources/cucumber.properties:          ?[36mcucumber.publish.quiet?[0m=?[36mtrue?[0m      ?[32m?[1m│?[0m
+?[32m?[1m│?[0m src/test/resources/junit-platform.properties:    ?[36mcucumber.publish.quiet?[0m=?[36mtrue?[0m      ?[32m?[1m│?[0m
+?[32m?[1m└───────────────────────────────────────────────────────────────────────────────────┘?[0m
+]]></system-err>
+</testsuite>
