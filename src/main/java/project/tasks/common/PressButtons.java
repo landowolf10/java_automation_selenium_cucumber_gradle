@@ -1,4 +1,4 @@
-package org.example.project.tasks.common;
+package project.tasks.common;
 
 import framework.utils.BasePage;
 import org.openqa.selenium.WebElement;

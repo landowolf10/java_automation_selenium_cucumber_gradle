@@ -55,7 +55,7 @@ public class BasePage extends Clients
         return getDriver().findElement(elementLocator).getAttribute(attribute);
     }
 
-    public String getElementText(By elementLocator)
+    public static String getElementText(By elementLocator)
     {
         return getWebDriver().findElement(elementLocator).getText();
     }

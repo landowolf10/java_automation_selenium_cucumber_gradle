@@ -1,7 +1,6 @@
 package framework.config;
 
 import framework.utils.ConstantData;
-
 import java.util.HashMap;
 
 public class RunSettings {

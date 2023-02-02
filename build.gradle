@@ -17,6 +17,7 @@ dependencies {
     testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.9.0'
     testImplementation group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.9.1'
     implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
+    implementation group: 'com.github.stephenc.monte', name: 'monte-screen-recorder', version: '0.7.7.0'
 }
 
 test {
