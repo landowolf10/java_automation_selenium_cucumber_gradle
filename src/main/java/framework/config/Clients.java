@@ -2,6 +2,7 @@ package framework.config;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.HashMap;
 
@@ -29,7 +30,9 @@ public class Clients
     {
         HashMap<String, String> runSettings = loadConfig();
         System.setProperty(runSettings.get("chromeDriver"), runSettings.get("driverPath"));
-        driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(chromeOptions);
 
         driver.get(runSettings.get("URL"));
         driver.manage().window().maximize();

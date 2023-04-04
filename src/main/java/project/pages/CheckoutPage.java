@@ -1,6 +1,5 @@
 package project.pages;
 
-import dev.failsafe.internal.util.Assert;
 import org.openqa.selenium.By;
 
 import static framework.utils.BasePage.*;
