@@ -27,7 +27,7 @@ public class CheckoutPage
 
     public static void verifyCheckoutCompleted()
     {
-        assert getElementText(By.xpath(orderTitle)).equals("THANK YOU FOR YOUR ORDER");
+        assert getElementText(By.xpath(orderTitle)).equals("Thank you for your order!");
         assert getElementText(By.xpath(orderMessage)).equals("Your order has been dispatched, and will arrive " +
                 "just as fast as the pony can get there!");
         waitUntilElementLocated(By.xpath(backToHomeButton), 10);
