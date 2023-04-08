@@ -1,4 +1,4 @@
-Feature:Login
+Feature: Invalid user login
   Scenario: Invalid user
     Given app is open
     When entering email standard_use and password secret_sauce
