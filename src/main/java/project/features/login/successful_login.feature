@@ -1,4 +1,4 @@
-Feature: Successful login
+Feature: Successful logi
   Scenario: Successful login
     Given app is open
     When entering email standard_user and password secret_sauce
