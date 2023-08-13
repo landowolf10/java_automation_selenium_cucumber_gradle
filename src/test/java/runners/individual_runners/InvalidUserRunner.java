@@ -11,7 +11,8 @@ import org.junit.runner.RunWith;
         plugin = {
                 "pretty", "html:src/main/java/project/reports/html/report.html",
                 "json:src/main/java/project/reports/json/report.json"
-        }
+        },
+        publish = true
 )
 
 public class InvalidUserRunner

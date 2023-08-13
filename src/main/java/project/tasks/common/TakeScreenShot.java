@@ -10,9 +10,12 @@ public class TakeScreenShot
 {
     public static void takeScreenShot(Scenario scenario)
     {
-        TakesScreenshot ts = (TakesScreenshot) getWebDriver();
-        byte[] screenshot = ts.getScreenshotAs(OutputType.BYTES);
+        if (scenario.isFailed())
+        {
+            TakesScreenshot ts = (TakesScreenshot) getWebDriver();
+            byte[] screenshot = ts.getScreenshotAs(OutputType.BYTES);
 
-        scenario.attach(screenshot, "image/png", "Screenshot");
+            scenario.attach(screenshot, "image/png", "Screenshot");
+        }
     }
 }
