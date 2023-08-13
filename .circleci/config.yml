@@ -21,7 +21,7 @@ jobs:
             sudo chmod +x /usr/local/bin/chromedriver
             chmod +x gradlew
             pwd
-            cd..
+            cd /home/circleci/project/src
             ls
       - run:
           name: Run Selenium Tests
