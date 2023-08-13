@@ -12,10 +12,13 @@ jobs:
       - run:
           name: Install Dependencies
           command: |
-            sudo apt-get update && sudo apt-get install -y chromium-browser
-            curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-            sudo apt-get install -y nodejs
-            npm install -g chromedriver
+            sudo curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+            echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee -a /etc/apt/sources.list.d/google-chrome.list
+            sudo apt-get update && sudo apt-get install -y google-chrome-stable
+            wget -N https://chromedriver.storage.googleapis.com/$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip
+            unzip chromedriver_linux64.zip -d ~/bin
+            sudo mv ~/bin/chromedriver /usr/local/bin/chromedriver
+            sudo chmod +x /usr/local/bin/chromedriver
       - run:
           name: Build Project
           command: ./gradlew assemble
@@ -33,7 +36,7 @@ jobs:
           at: /tmp/workspace
       - run:
           name: Run Selenium Tests
-          command: ./gradlew clean test --tests LoginRunner
+          command: ./gradlew clean test
 workflows:
   version: 2
   build-test:
