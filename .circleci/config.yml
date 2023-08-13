@@ -20,9 +20,6 @@ jobs:
             sudo mv ~/bin/chromedriver /usr/local/bin/chromedriver
             sudo chmod +x /usr/local/bin/chromedriver
             chmod +x gradlew
-            cd /home/circleci/project/src/main/java/framework/drivers
-            pwd
-            ls
       - run:
           name: Run Selenium Tests
           command: ./gradlew clean test --tests LoginRunner
