@@ -15,7 +15,9 @@ jobs:
       # For example, if you're using Gradle Wrapper, you might use the following step:
       - run:
           name: Build Project
-          command: ./gradlew build
+          command: |
+            chmod +x gradlew
+            ./gradlew build
 
   test:
     executor: default
@@ -30,7 +32,9 @@ jobs:
       # Run your Selenium tests using Gradle with the proper system properties
       - run:
           name: Run Selenium Tests
-          command: ./gradlew test -Dselenium.remote.url=http://localhost:4444/wd/hub
+          command: |
+            chmod +x gradlew
+            ./gradlew test -Dselenium.remote.url=http://localhost:4444/wd/hub
 
       # Stop the Selenium services after tests are done
       - run:
