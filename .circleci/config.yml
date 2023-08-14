@@ -23,7 +23,7 @@ jobs:
             chmod +x /home/circleci/project/src/main/java/framework/drivers/chromedriver
       - run:
           name: Run Selenium Tests
-          command: ./gradlew clean test --tests LoginRunner
+          command: ./gradlew clean test
 
 workflows:
   version: 2
