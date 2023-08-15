@@ -24,6 +24,11 @@ jobs:
       - run:
           name: Run Selenium Tests
           command: ./gradlew clean test --tests GlobalRunner
+      - store_artifacts:
+          path: src/main/java/project/reports
+          destination: cucumber-reports
+      - store_test_results:
+          path: src/main/java/project/reports
 
 workflows:
   version: 2
