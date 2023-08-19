@@ -32,7 +32,7 @@ public class Clients
         System.setProperty(runSettings.get("chromeDriver"), runSettings.get("driverPath"));
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*");
-        //chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--headless");
         driver = new ChromeDriver(chromeOptions);
 
         driver.get(runSettings.get("URL"));
