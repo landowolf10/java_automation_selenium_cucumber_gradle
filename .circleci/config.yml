@@ -23,7 +23,7 @@ jobs:
             chmod +x /home/circleci/project/src/main/java/framework/drivers/chromedriver
       - run:
           name: Run Selenium Tests
-          command: ./gradlew clean test --tests GlobalRunner
+          command: ./gradlew clean test
       - store_artifacts:
           path: src/main/java/project/reports
           destination: cucumber-reports

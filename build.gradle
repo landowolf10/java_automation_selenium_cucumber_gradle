@@ -29,3 +29,9 @@ tasks.withType(Test) {
         events "standardOut", "started", "passed", "skipped", "failed"
     }
 }
+
+test {
+    // Configure parallel execution
+    maxParallelForks = 5 // Adjust the number of parallel forks as needed
+    forkEvery = 1
+}
