@@ -5,6 +5,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class Config extends DesiredCapabilities
 {
-    public static WebDriver driver = null;
-    public static boolean instanceExists = false;
+    public static WebDriver chromeDriver = null;
+    public static WebDriver geckoDriver = null;
+    public static boolean chromeInstanceExists = false;
+    public static boolean geckoInstanceExists = false;
 }

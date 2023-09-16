@@ -1,56 +1,92 @@
 package framework.config;
 
+import com.beust.jcommander.Parameter;
+import com.beust.jcommander.Parameters;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.util.HashMap;
 
-import static framework.config.Config.instanceExists;
+import static framework.config.Config.chromeInstanceExists;
+import static framework.config.Config.geckoInstanceExists;
 import static framework.config.RunSettings.loadConfig;
 
 public class Clients
 {
-    WebDriver driver;
+    WebDriver chromeDriver, geckoDriver;
 
     public WebDriver getDriver()
     {
-        if (instanceExists)
-            driver = Config.driver;
-        else
-            driver = createDriver();
+        if (chromeInstanceExists) {
+            chromeDriver = Config.chromeDriver;
+        }
+        else {
+            chromeDriver = createDriver().get("chrome");
+        }
 
-        instanceExists = true;
-        Config.driver = driver;
+        if (geckoInstanceExists) {
+            geckoDriver = Config.geckoDriver;
+        }
+        else {
+            geckoDriver = createDriver().get("firefox");
+        }
 
-        return driver;
+        chromeInstanceExists = true;
+        geckoInstanceExists = true;
+        Config.chromeDriver = chromeDriver;
+        Config.geckoDriver = geckoDriver;
+
+        return chromeDriver;
     }
 
-    private WebDriver createDriver()
+    private HashMap<String, WebDriver> createDriver()
     {
         HashMap<String, String> runSettings = loadConfig();
+        HashMap<String, WebDriver> webDriver = new HashMap<>();
         System.setProperty(runSettings.get("chromeDriver"), runSettings.get("driverPath"));
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*");
-        chromeOptions.addArguments("--headless");
-        driver = new ChromeDriver(chromeOptions);
+        //chromeOptions.addArguments("--headless");
+        chromeDriver = new ChromeDriver(chromeOptions);
 
-        driver.get(runSettings.get("URL"));
-        driver.manage().window().maximize();
+        chromeDriver.get(runSettings.get("URL"));
+        chromeDriver.manage().window().maximize();
 
-        return driver;
+        System.setProperty(runSettings.get("geckoDriver"), runSettings.get("driverPathGecko"));
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        //firefoxOptions.addArguments("--headless");
+        geckoDriver = new FirefoxDriver(firefoxOptions);
+
+        geckoDriver.get(runSettings.get("URL"));
+        geckoDriver.manage().window().maximize();
+
+        webDriver.put("chrome", chromeDriver);
+        webDriver.put("firefox", geckoDriver);
+
+        return webDriver;
     }
 
     public void killDriver() {
-        WebDriver currentDriver;
+        WebDriver currentChromeDriver, currentGeckoDriver;
 
-        if (instanceExists)
+        if (chromeInstanceExists)
         {
-            currentDriver = Config.driver;
-            currentDriver.quit();
+            currentChromeDriver = Config.chromeDriver;
+            currentChromeDriver.quit();
         }
 
-        instanceExists = false;
-        Config.driver = null;
+        if (geckoInstanceExists)
+        {
+           currentGeckoDriver = Config.geckoDriver;
+           currentGeckoDriver.quit();
+        }
+
+        chromeInstanceExists = false;
+        geckoInstanceExists = false;
+        Config.chromeDriver = null;
+        Config.geckoDriver = null;
     }
 }
